@@ -1,0 +1,16 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+main {
+  flex-grow: 1;
+}
