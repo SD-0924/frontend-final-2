@@ -1,13 +1,14 @@
-import { Footer } from "./components/footer/footer"
-import { Header } from "./components/header/header"
+import { Footer } from "./components/footer/Footer";
+import { Header } from "./components/header/Header";
+
+
 
 export const Layout = (props) => (
     <>
         <Header />
         <main>
-            {props.children}
+            {props.children} 
         </main>
-
         <Footer />
     </>
 )
