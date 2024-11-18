@@ -11,8 +11,8 @@ export const HandPickedSlider = (props) => {
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 20,
-                },
-                
+                },     
+                                 
                 888: {
                   slidesPerView: 3, 
                   spaceBetween: 40,

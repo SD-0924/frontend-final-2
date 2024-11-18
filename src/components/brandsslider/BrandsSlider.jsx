@@ -9,9 +9,9 @@ export const BrandsSlider = (props) => {
             breakpoints={{
                 320: {
                   slidesPerView: 2,
-                  spaceBetween: 20,
+                  spaceBetween: 1,
                 },
-                550:{
+                540:{
                     slidesPerView: 3,
                     spaceBetween: 20,
                 },
@@ -20,13 +20,9 @@ export const BrandsSlider = (props) => {
                   spaceBetween: 30,
                 },
                 1024: {
-                  slidesPerView: 5, 
+                  slidesPerView: 6, 
                   spaceBetween: 40,
                 },
-                1515: {
-                    slidesPerView: 6, 
-                    spaceBetween: 40,
-                  },
                
               }}
         >

@@ -14,7 +14,6 @@
   border-radius: 20px;
   margin-top: 15px;
   overflow: hidden;
-  max-height: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -30,14 +29,14 @@
 }
 
 .handpickedcard img {
-  width: 100%;
+  max-width: 280px;
   border-radius: 20px;
   object-fit: cover;
-  max-height: 200px;
+  min-height: 280px;
 }
 
 .handpickedcard h5 {
-  font-size: 1rem;
+  font-size: 1.3rem;
   position: absolute;
   z-index: 1;
   color: black;
