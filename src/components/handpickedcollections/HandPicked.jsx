@@ -1,17 +1,33 @@
+
+import { Box, Container, Typography } from '@mui/material';
 import { HandPickedSlider } from '../handpickedslider/HandPickedSlider';
-import './HandPicked.css';
-import 'swiper/css'
-
-
 export const HandPickedCollections = () => {
     return (
 
-        <div className="maindiv">
+        <Box 
+        sx={ 
+            {
+                bgcolor: "#1b4b66",
+                width: "100%",
+                paddingBottom: "0px"
+            }
+           
+        }>
 
-            <div className='container'>
+            <Container>
+                <Box
+                sx={{
+                    color: "white",
+                    paddingTop: "15px",
 
-                <div className='handpicked-comp-container'>
-                    <h2>Handpicked Collections</h2>
+                }}>
+                <Typography variant='h2' sx={
+                    {
+                        
+                        fontSize: "1.8rem",
+                        color: "white",
+                    }
+                }>Handpicked Collections</Typography>
                     <HandPickedSlider
 
                         array={[
@@ -27,9 +43,11 @@ export const HandPickedCollections = () => {
                     </HandPickedSlider>
 
 
-                </div>
-            </div>
+                
 
-        </div>
+                </Box>
+            </Container>
+
+        </Box>
     )
 }

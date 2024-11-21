@@ -1,47 +1,23 @@
 #root {
   display: flex;
   flex-direction: column;
-  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 500;
+  font-family: "Inter", sans-serif !important;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Ensure padding and borders are included in the element's width and height */
+  box-sizing: border-box; 
 }
 
 main {
   min-height: 100vh;
   flex-grow: 1;
 }
-
-.container {
-  width: 100%;
-  max-width: 1300px; /* Ensure maximum width is maintained */
-  margin: auto;
-  padding: 0 20px; /* Add padding for smaller screens */
+.swiper-wrapper{
+  margin-bottom: 25px;
 }
 
-/* Responsive styles */
-@media (max-width: 1024px) {
-  .container {
-    max-width: 1000px; /* Adjust maximum width for smaller screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 700px; /* Adjust maximum width for tablets */
-    padding: 0 15px; /* Adjust padding for smaller tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    max-width: 100%; /* Full width for mobile devices */
-    padding: 0 10px; /* Smaller padding for narrow screens */
-  }
-}
