@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Footer } from "./components/footer/Footer";
-import { Header } from "./components/header/Header";
+import Header from "./components/header/Header";
 
 const theme = createTheme
     ({
