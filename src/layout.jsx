@@ -4,6 +4,18 @@ import Header from "./components/header/Header";
 
 const theme = createTheme
     ({
+        components:{
+
+            MuiContainer:{
+                styleOverrides:{
+                    maxWidthLg:{
+                        '@media (min-width: 1200px)':{
+                            maxWidth: '1300px'
+                        }
+                    }
+                }
+            }
+        },
         typography: {
             fontFamily: 'Inter',
             h1: {
