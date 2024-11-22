@@ -69,7 +69,7 @@ export const BottomCards = () => {
                         display: 'flex',
                         gap: '20px',
                         justifyContent: 'space-between',
-                        flexDirection: { xs: 'column', md: 'row' }, // Stack vertically on small screens
+                        flexDirection: { xs: 'column', md: 'row' },
                         flexWrap: 'wrap',
                     }}
                 >
@@ -79,7 +79,7 @@ export const BottomCards = () => {
                             position: 'relative',
                             overflow: 'hidden',
                             borderRadius: '25px',
-                            width: { xs: '100%', md: '49%' }, // Full width on small screens
+                            width: { xs: '100%', md: '49%' }, 
                         }}
                     >
                         <Box
