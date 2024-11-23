@@ -2,8 +2,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./layout";
 import React from "react";
-import { HomeContent } from "./components/homecontent/HomeContent";
-import { CollectionsContent } from "./components/collectioncontent/CollectionContent";
+import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
+import { CollectionsContent } from "./components/HomePage/collectioncontent/CollectionContent";
+import { LoginPage } from "./components/LoginPage/loginpage";
 
 
 export const router = createBrowserRouter([
@@ -22,5 +23,11 @@ export const router = createBrowserRouter([
         <CollectionsContent />  
       </Layout>
     ),
+  },
+  {
+    path: "/login",
+    element:(
+     <LoginPage/> 
+    )
   }
 ]);

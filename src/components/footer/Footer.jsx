@@ -2,7 +2,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YoutubeIcon from '@mui/icons-material/Youtube';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import { Box, Link, List, ListItem, Typography } from '@mui/material';
-import { SocialsButton } from '../socialsbutton/SocialsButton';
+import { SocialsButton } from '../HomePage/socialsbutton/SocialsButton';
 
 
 
