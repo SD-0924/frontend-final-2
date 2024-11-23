@@ -3,8 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./layout";
 import React from "react";
 import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
-import { CollectionsContent } from "./components/HomePage/collectioncontent/CollectionContent";
+import { CategoryContent} from "./components/CategoryPage/collectioncontent/CategoryContent";
 import { LoginPage } from "./components/LoginPage/loginpage";
+import { productsLoader } from "./components/CategoryPage/announcmentshero/AnnouncmentsHero";
 
 
 export const router = createBrowserRouter([
@@ -17,10 +18,11 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/collections/:name",
+    path: "/category/:name",
+    // loader: productsLoader,
     element: (
       <Layout>
-        <CollectionsContent />  
+        <CategoryContent />  
       </Layout>
     ),
   },
