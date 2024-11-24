@@ -23,7 +23,7 @@ export const BottomCards = () => {
                 >
                     <Box
                         component="img"
-                        src="/bigcard.jpg"
+                        src="/images/bigcard.jpg"
                         sx={{
                             height: '100%',
                             minWidth: '100%',
@@ -84,7 +84,7 @@ export const BottomCards = () => {
                     >
                         <Box
                             component="img"
-                            src="/smallcard1edit.jpg"
+                            src="/images/smallcard1edit.jpg"
                             sx={{
                                 width: '100%',
                                 height: '228px',
@@ -150,7 +150,7 @@ export const BottomCards = () => {
                     >
                         <Box
                             component="img"
-                            src="/smallcard2.jpg"
+                            src="/images/smallcard2.jpg"
                             sx={{
                                 width: '100%',
                                 height: '228px',

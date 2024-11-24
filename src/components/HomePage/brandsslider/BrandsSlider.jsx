@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import PropTypes from 'prop-types';
 import { BrandsCard } from '../brandscard/BrandsCard';
 
+
 export const BrandsSlider = (props) => {
     return (
         <Swiper
@@ -30,7 +31,7 @@ export const BrandsSlider = (props) => {
         >
             {props.array.map((item, index) => {
                 return (<SwiperSlide key={index}>
-                    <BrandsCard image={item.image} />
+                    <BrandsCard image={`/images${item.image}`} />
                 </SwiperSlide>
                 )
             }

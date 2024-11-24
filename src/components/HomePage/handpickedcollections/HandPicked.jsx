@@ -31,13 +31,13 @@ export const HandPickedCollections = () => {
                     <HandPickedSlider
 
                         array={[
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
-                            { image: '/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
+                            { image: '/images/perfume.jpg', title: 'Personal Care' },
                         ]}>
 
                     </HandPickedSlider>

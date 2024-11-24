@@ -1,6 +1,6 @@
 import { AnnouncmentsHero } from "../announcmentshero/AnnouncmentsHero"
 
-export const CollectionsContent = () => {
+export const CategoryContent = () => {
     return(
         <AnnouncmentsHero/>
     )
