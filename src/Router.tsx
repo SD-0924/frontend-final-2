@@ -6,16 +6,22 @@ import SignUpForm from "./components/RegistrationPages/SignUp/SignUpForm";
 import { CategoryContent } from "./components/CategoryPage/collectioncontent/CategoryContent";
 import { LoginPage } from "./components/LoginPage/loginpage";
 import { CartContent } from "./components/CartPage/cartcontent/cartcontent";
+import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
 
 
 export const router = createBrowserRouter([
   {
+    path: "/signup",
+    element: (
+      <SignUpForm />
+    ),
+  },
+  {
     path: "/",
     element: (
-      // <Layout>
-      //   <HomeContent />
-      // </Layout>
-      <SignUpForm/>
+      <Layout>
+        <HomeContent />
+      </Layout>
     ),
   },
   {
@@ -23,21 +29,21 @@ export const router = createBrowserRouter([
     // loader: productsLoader,
     element: (
       <Layout>
-        <CategoryContent />  
+        <CategoryContent />
       </Layout>
     ),
   },
   {
     path: "/login",
-    element:(
-     <LoginPage/> 
+    element: (
+      <LoginPage />
     )
   },
   {
     path: "/mycart",
-    element:(
+    element: (
       <Layout>
-        <CartContent/>
+        <CartContent />
       </Layout>
     )
   }
