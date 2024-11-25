@@ -6,6 +6,7 @@ import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
 import { CategoryContent} from "./components/CategoryPage/collectioncontent/CategoryContent";
 import { LoginPage } from "./components/LoginPage/loginpage";
 import { productsLoader } from "./components/CategoryPage/announcmentshero/AnnouncmentsHero";
+import { CartContent } from "./components/CartPage/cartcontent/cartcontent";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,14 @@ export const router = createBrowserRouter([
     path: "/login",
     element:(
      <LoginPage/> 
+    )
+  },
+  {
+    path: "/mycart",
+    element:(
+      <Layout>
+        <CartContent/>
+      </Layout>
     )
   }
 ]);
