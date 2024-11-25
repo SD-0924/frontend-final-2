@@ -9,6 +9,7 @@ import { CartContent } from "./components/CartPage/cartcontent/cartcontent";
 import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/signup",
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       <Layout>
         <HomeContent />
       </Layout>
+      <SignUpForm/>
     ),
   },
   {
