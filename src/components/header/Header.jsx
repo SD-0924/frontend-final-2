@@ -46,7 +46,7 @@ const NavLinks = styled(Box)(({ theme }) => ({
     gap: theme.spacing(2),
   },
   [theme.breakpoints.down('sm')]: {
-    display: 'none', 
+    display: 'none',
   },
 }));
 
@@ -70,9 +70,13 @@ const Header = () => {
       elevation={1}
     >
       <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+
         <Typography
           variant="h5"
+          component={'a'}
+          href="/"
           sx={{
+            textDecoration: 'none',
             fontWeight: 'bold',
             fontSize: isSmallScreen ? 24 : 35,
             color: '#0e5357',
@@ -87,7 +91,7 @@ const Header = () => {
               key={item}
               variant="body1"
               component="a"
-              href="#"
+              href={'/category/' + item}
               sx={{ textDecoration: 'none', color: 'inherit' }}
             >
               {item}

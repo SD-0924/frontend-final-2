@@ -1,13 +1,32 @@
 import { Box, IconButton, Typography } from "@mui/material"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-export const CardComponent = () => {
+function getStars(rating) {
+    const fullStar = <i className="fa-solid fa-star"></i>;
+    const emptyStar = <i className="fa-regular fa-star"></i>;
+  
+    let starElements = [];
+  
+    for (let i = 0; i < 5; i++) {
+      if (rating >= i + 1) {
+        starElements.push(<i key={i} className="fa-solid fa-star"></i>);
+      } else if (rating > i && rating < i + 1) {
+        starElements.push(<i key={i} className="fa-regular fa-star"></i>);
+      } else {
+        starElements.push(<i key={i} className="fa-regular fa-star"></i>);
+      }
+    }
+  
+    return starElements;
+  }
+export const CardComponent = ({product}) => {
+    let priceBeforeDiscount = Math.round(product.price_after_discount + (product.price_after_discount * product.discount_percentage / 100));
     return (
         <Box sx={{
             height: "422px",
             width: "284px",
 
         }}>
-            <Box component={"img"} src="/images/pinkbag.png" sx={{
+            <Box component={"img"} src={product.product_image_url} sx={{
                 width: "286px",
                 height: "286px",
                 borderRadius: "10px",
@@ -19,7 +38,7 @@ export const CardComponent = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
             }}>
-                <Typography variant="h6">Grande</Typography>
+                <Typography variant="h6">{product.brand_name}</Typography>
                 <IconButton>
                 <FavoriteBorderIcon sx={{
                     color: "black",
@@ -28,7 +47,7 @@ export const CardComponent = () => {
             </Box>
             <Typography component={"p"} sx={{
                 color: "#626262",
-            }}>Blossom Pouch</Typography>
+            }}>{product.name}</Typography>
 
             {/* Stars and Ratings */}
             <Box sx={
@@ -45,16 +64,13 @@ export const CardComponent = () => {
                             fontSize: "1.2rem",
                             color: "#FF8C4B",
                         }
-                    }><i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-regular fa-star"></i>
+                    }>
+                    {getStars(product.averageRating)}
                 </Box>
                 <Typography component={"p"} sx={{
                     color: "#1B4B66",
                     fontWeight: "500",
-                }}>43 Ratings</Typography>
+                }}>{product.NumberOfRatings} Ratings</Typography>
 
             </Box>
 
@@ -66,15 +82,15 @@ export const CardComponent = () => {
             }}>
                 <Typography component={"p"} sx={{
                     fontWeight: "500",
-                }}>$39.49</Typography>
+                }}>${product.price_after_discount}</Typography>
                 <Typography component={"p"} sx={{
                     color: "#626262",
                     textDecoration: "line-through",
                     fontSize: "14px",
-                }}>$78.66</Typography>
+                }}>${priceBeforeDiscount}</Typography>
                 <Typography component={"p"} sx={{
                     color: "#E21D1D",
-                }}>50% OFF</Typography>
+                }}>{product.discount_percentage}% OFF</Typography>
             </Box>
         </Box>
     )

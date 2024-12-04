@@ -1,6 +1,7 @@
 import { Box, Container, Grid2, Link, Pagination, Typography, useMediaQuery } from "@mui/material";
-import { useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Await, useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
 import { CardComponent } from "../cardcomponent/CardComponent";
+import { Suspense } from "react";
 
 export const AnnouncmentsHero = () => {
     const { name } = useParams();
@@ -118,7 +119,7 @@ export const AnnouncmentsHero = () => {
                         textAlign: { xs: "center", sm: "left" },
                     }}
                 >
-                    {name + "s"}
+                    {name}
                 </Typography>
 
                 {/* Product Cards */}
@@ -129,16 +130,22 @@ export const AnnouncmentsHero = () => {
                         justifyContent: { xs: "center", sm: "flex-start" },
                     }}
                 >
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
+                    <Suspense fallback={<Typography>Loading products...</Typography>}>
+                        <Await resolve={products.
+                            // @ts-ignore
+                            data}>
+                            {(resolvedData) => (
+                                resolvedData.products.map((product) => (
+                                    <CardComponent
+                                        key={product.product_id}
+                                        product={product}
+                                    />
+                                ))
+                            )}
+                        </Await>
+                    </Suspense>
                 </Grid2>
+
 
                 {/* Pagination */}
                 <Box
@@ -149,27 +156,37 @@ export const AnnouncmentsHero = () => {
                         padding: "20px",
                     }}
                 >
-                    <Pagination
-                        count={5}
-                        page={pageNumber}
-                        onChange={handlePageChange}
-                        variant="outlined"
-                        shape="rounded"
-                        siblingCount={1}
-                        color="primary"
-                    />
+                    <Suspense fallback={""}>
+                        <Await resolve={products.
+                            // @ts-ignore
+                            data}>
+                            {(resolvedData) => (
+
+                                <Pagination
+                                    count={resolvedData.number_of_pages}
+                                    page={pageNumber}
+                                    onChange={handlePageChange}
+                                    variant="outlined"
+                                    shape="rounded"
+                                    siblingCount={1}
+                                    color="primary"
+                                />
+
+                            )}
+
+
+
+                        </Await>
+
+
+                    </Suspense>
+
+
                 </Box>
             </Box>
         </Container>
     );
 };
 
-export const productsLoader = async ({ request }) => {
-    const url = new URL(request.url);
-    const page = url.searchParams.get("page") || 1;
-    const response = await fetch(`https://api.example.com/handbag?page=${page}`);
-    if (!response.ok) {
-        throw new Error("Failed to load products.");
-    }
-    return response.json();
-};
+
+
