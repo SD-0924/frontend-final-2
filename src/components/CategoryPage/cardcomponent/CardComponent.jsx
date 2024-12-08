@@ -1,24 +1,24 @@
-import { Box, IconButton, Typography } from "@mui/material"
+import { Box, IconButton, Link, Typography } from "@mui/material"
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 function getStars(rating) {
     const fullStar = <i className="fa-solid fa-star"></i>;
     const emptyStar = <i className="fa-regular fa-star"></i>;
-  
+
     let starElements = [];
-  
+
     for (let i = 0; i < 5; i++) {
-      if (rating >= i + 1) {
-        starElements.push(<i key={i} className="fa-solid fa-star"></i>);
-      } else if (rating > i && rating < i + 1) {
-        starElements.push(<i key={i} className="fa-regular fa-star"></i>);
-      } else {
-        starElements.push(<i key={i} className="fa-regular fa-star"></i>);
-      }
+        if (rating >= i + 1) {
+            starElements.push(<i key={i} className="fa-solid fa-star"></i>);
+        } else if (rating > i && rating < i + 1) {
+            starElements.push(<i key={i} className="fa-regular fa-star"></i>);
+        } else {
+            starElements.push(<i key={i} className="fa-regular fa-star"></i>);
+        }
     }
-  
+
     return starElements;
-  }
-export const CardComponent = ({product}) => {
+}
+export const CardComponent = ({ product }) => {
 
     return (
         <Box sx={{
@@ -26,12 +26,14 @@ export const CardComponent = ({product}) => {
             width: "284px",
 
         }}>
-            <Box component={"img"} src={product.product_image_url} sx={{
-                width: "286px",
-                height: "286px",
-                borderRadius: "10px",
-            }}>
-            </Box>
+            <Link href={`/product/${product.product_id}`}>
+                <Box component={"img"} src={product.product_image_url} sx={{
+                    width: "286px",
+                    height: "286px",
+                    borderRadius: "10px",
+                }}>
+                </Box>
+            </Link>
 
             <Box sx={{
                 display: "flex",
@@ -40,9 +42,9 @@ export const CardComponent = ({product}) => {
             }}>
                 <Typography variant="h6">{product.brand_name}</Typography>
                 <IconButton>
-                <FavoriteBorderIcon sx={{
-                    color: "black",
-                }}/>
+                    <FavoriteBorderIcon sx={{
+                        color: "black",
+                    }} />
                 </IconButton>
             </Box>
             <Typography component={"p"} sx={{
