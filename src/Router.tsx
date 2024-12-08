@@ -12,6 +12,7 @@ import { productsLoader } from "./components/productsloader";
 
 
 export const router = createBrowserRouter([
+  
   {
     path: "/signup",
     element: (
@@ -27,8 +28,8 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/category/:name",
-    loader: productsLoader,
+    path: "/:type/:name",
+    // loader: productsLoader,
     element: (
       <Layout>
         <CategoryContent />

@@ -19,7 +19,7 @@ function getStars(rating) {
     return starElements;
   }
 export const CardComponent = ({product}) => {
-    let priceBeforeDiscount = Math.round(product.price_after_discount + (product.price_after_discount * product.discount_percentage / 100));
+
     return (
         <Box sx={{
             height: "422px",
@@ -87,7 +87,7 @@ export const CardComponent = ({product}) => {
                     color: "#626262",
                     textDecoration: "line-through",
                     fontSize: "14px",
-                }}>${priceBeforeDiscount}</Typography>
+                }}>${product.price}</Typography>
                 <Typography component={"p"} sx={{
                     color: "#E21D1D",
                 }}>{product.discount_percentage}% OFF</Typography>

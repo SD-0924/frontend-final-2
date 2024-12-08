@@ -1,26 +1,10 @@
-import { Box, Container, Grid2, Link, Pagination, Typography, useMediaQuery } from "@mui/material";
-import { Await, useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
-import { CardComponent } from "../cardcomponent/CardComponent";
-import { Suspense } from "react";
+import { Box, Container, Typography } from "@mui/material"
 
 export const AnnouncmentsHero = () => {
-    const { name } = useParams();
-    const location = useLocation();
-    const navigate = useNavigate();
-    const queryParams = new URLSearchParams(location.search);
-    const pageNumber = parseInt(queryParams.get("page")) || 1;
-    const products = useLoaderData();
-    // Handle pagination
-    const handlePageChange = (event, newPage) => {
-        navigate(`?page=${newPage}`);
-    };
-
-    const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-
-    return (
-        <Container>
-            {/* Hero Section */}
-            <Box sx={{ position: "relative" }}>
+    return(
+    <Container>
+        {/* Hero Section */}
+        <Box sx={{ position: "relative" }}>
                 <Box
                     component={"img"}
                     src="/images/blackfridayedited.png"
@@ -61,132 +45,8 @@ export const AnnouncmentsHero = () => {
                     </Typography>
                 </Box>
             </Box>
-
-            {/* Breadcrumb Section */}
-            <Box
-                sx={{
-                    width: { xs: "100%", sm: "90%", md: "940px" },
-                    margin: "auto",
-                    marginTop: "20px",
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        gap: "10px",
-                        textAlign: "center",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    <Link
-                        href="/"
-                        underline="none"
-                        sx={{
-                            color: "#1b4b66",
-                            fontSize: "1rem",
-                        }}
-                    >
-                        Home
-                    </Link>
-                    <Typography
-                        sx={{
-                            color: "black",
-                            fontSize: "1rem",
-                        }}
-                    >
-                        {'>'}
-                    </Typography>
-                    <Link
-                        href="#"
-                        underline="none"
-                        sx={{
-                            color: "#626262",
-                            fontSize: "1rem",
-                        }}
-                    >
-                        {name}
-                    </Link>
-                </Box>
-
-                <Typography
-                    variant="h1"
-                    sx={{
-                        color: "#1b4b66",
-                        marginTop: "20px",
-                        marginBottom: "30px",
-                        fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3rem" },
-                        textAlign: { xs: "center", sm: "left" },
-                    }}
-                >
-                    {name}
-                </Typography>
-
-                {/* Product Cards */}
-                <Grid2
-                    container
-                    spacing={5}
-                    sx={{
-                        justifyContent: { xs: "center", sm: "flex-start" },
-                    }}
-                >
-                    <Suspense fallback={<Typography>Loading products...</Typography>}>
-                        <Await resolve={products.
-                            // @ts-ignore
-                            data}>
-                            {(resolvedData) => (
-                                resolvedData.products.map((product) => (
-                                    <CardComponent
-                                        key={product.product_id}
-                                        product={product}
-                                    />
-                                ))
-                            )}
-                        </Await>
-                    </Suspense>
-                </Grid2>
-
-
-                {/* Pagination */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        padding: "20px",
-                    }}
-                >
-                    <Suspense fallback={""}>
-                        <Await resolve={products.
-                            // @ts-ignore
-                            data}>
-                            {(resolvedData) => (
-
-                                <Pagination
-                                    count={resolvedData.number_of_pages}
-                                    page={pageNumber}
-                                    onChange={handlePageChange}
-                                    variant="outlined"
-                                    shape="rounded"
-                                    siblingCount={1}
-                                    color="primary"
-                                />
-
-                            )}
-
-
-
-                        </Await>
-
-
-                    </Suspense>
-
-
-                </Box>
-            </Box>
-        </Container>
-    );
-};
-
-
-
+        
+    </Container>
+        
+    )
+}
