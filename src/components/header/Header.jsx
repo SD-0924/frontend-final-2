@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Box, InputBase, useMediaQuery } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -46,7 +47,7 @@ const NavLinks = styled(Box)(({ theme }) => ({
     gap: theme.spacing(2),
   },
   [theme.breakpoints.down('sm')]: {
-    display: 'none', 
+    display: 'none',
   },
 }));
 
@@ -57,6 +58,16 @@ const CustomIconButton = styled(IconButton)(({ theme }) => ({
 const Header = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const [search, setSearch] = useState('');
+  const handleSearchValue = (e) => {
+    setSearch(e.target.value);
+  }
+  const navigate = useNavigate();
+  const handleNavigation = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/search/${search}`);
+    }
+  }
 
   return (
     <AppBar
@@ -70,9 +81,13 @@ const Header = () => {
       elevation={1}
     >
       <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+
         <Typography
           variant="h5"
+          component={'a'}
+          href="/"
           sx={{
+            textDecoration: 'none',
             fontWeight: 'bold',
             fontSize: isSmallScreen ? 24 : 35,
             color: '#0e5357',
@@ -87,7 +102,7 @@ const Header = () => {
               key={item}
               variant="body1"
               component="a"
-              href="#"
+              href={'/category/' + item}
               sx={{ textDecoration: 'none', color: 'inherit' }}
             >
               {item}
@@ -108,8 +123,9 @@ const Header = () => {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase placeholder="Search for products or brands..." />
+            <StyledInputBase placeholder="Search for products or brands..." onChange={handleSearchValue} onKeyDown={handleNavigation} value={search}/>
           </Search>
+          
 
           <CustomIconButton>
             <FavoriteBorderIcon />

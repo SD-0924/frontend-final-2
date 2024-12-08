@@ -31,7 +31,7 @@ export const BrandsSlider = (props) => {
         >
             {props.array.map((item, index) => {
                 return (<SwiperSlide key={index}>
-                    <BrandsCard image={`/images${item.image}`} />
+                    <BrandsCard props={item} />
                 </SwiperSlide>
                 )
             }

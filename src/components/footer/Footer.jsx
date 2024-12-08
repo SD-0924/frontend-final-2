@@ -31,12 +31,12 @@ export const Footer = () => {
                             <Typography>Shop By Category</Typography>
                             <List sx={{ listStyleType: 'none', padding: 0 }}>
                                 {[
-                                    { text: 'Skincare', href: '#' },
-                                    { text: 'Personal Care', href: '#' },
-                                    { text: 'Handbags', href: '#' },
-                                    { text: 'Apparels', href: '#' },
-                                    { text: 'Watches', href: '#' },
-                                    { text: 'Jewellery', href: '#' },
+                                    { text: 'Skincare', href: '/category/Skincare' },
+                                    { text: 'Personal Care', href: '/category/Personal Care' },
+                                    { text: 'Handbags', href: '/category/Handbags' },
+                                    { text: 'Apparels', href: '/category/Apparels' },
+                                    { text: 'Watches', href: '/category/Watches' },
+                                    { text: 'Jewellery', href: '/category/Jewellery' },
                                 ].map((item, index) => (
                                     <ListItem
                                         key={index}

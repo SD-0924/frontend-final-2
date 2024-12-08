@@ -1,8 +1,34 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Typography } from '@mui/material';
 import { BrandsSlider } from '../brandsslider/BrandsSlider';
+import { useQuery } from '@tanstack/react-query';
 export const ShopByBrands = () => {
-    return (
+    const fetchBrands = () => {
+        return fetch("https://cors-anywhere.herokuapp.com/https://backend-final-2-m4zr.onrender.com/api/brands").then((res) => res.json());
+    }
 
+    const { isLoading, data: brands, isError } = useQuery({
+        queryKey: ['brands'],
+        queryFn: fetchBrands,
+    });
+    if (isLoading) {
+        return (
+            <Container>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height:"200px",
+                    }}
+                >
+                    <CircularProgress />
+                </Box>
+            </Container>
+        );
+    }
+    
+
+    return (
         <Container>
             <Box 
             sx={{
@@ -16,20 +42,16 @@ export const ShopByBrands = () => {
                         color: "black"
                     }
                 }>Shop By Brands</Typography>
+
+                
+           
                 <BrandsSlider
                     slidesPerView={6}
                     spaceBetween={20}
-                    array={[
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                        { image: '/zaralogo.svg' },
-                    ]}
+                    array={brands}
+               
                 >
+                    
                 </BrandsSlider>
                 </Box>
 

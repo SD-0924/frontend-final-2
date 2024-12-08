@@ -7,10 +7,12 @@ import { CategoryContent } from "./components/CategoryPage/collectioncontent/Cat
 import { LoginPage } from "./components/LoginPage/loginpage";
 import { CartContent } from "./components/CartPage/cartcontent/cartcontent";
 import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
+import { productsLoader } from "./components/productsloader";
 
 
 
 export const router = createBrowserRouter([
+  
   {
     path: "/signup",
     element: (
@@ -26,7 +28,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/category/:name",
+    path: "/:type/:name",
     // loader: productsLoader,
     element: (
       <Layout>
