@@ -21,9 +21,9 @@ export const CardComponent = () => {
             }}>
                 <Typography variant="h6">Grande</Typography>
                 <IconButton>
-                <FavoriteBorderIcon sx={{
-                    color: "black",
-                }}/>
+                    <FavoriteBorderIcon sx={{
+                        color: "black",
+                    }} />
                 </IconButton>
             </Box>
             <Typography component={"p"} sx={{
@@ -40,8 +40,7 @@ export const CardComponent = () => {
                 }
             }>
                 <Box
-                    sx={
-                        {
+                    sx={{
                             fontSize: "1.2rem",
                             color: "#FF8C4B",
                         }

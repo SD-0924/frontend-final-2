@@ -1,6 +1,6 @@
 import { Box, Container, Grid2, Link, Pagination, Typography, useMediaQuery } from "@mui/material";
 import { useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
-import { CardComponent } from "../cardcomponent/CardComponent";
+import { CardComponent } from "./CardComponent";
 
 export const AnnouncmentsHero = () => {
     const { name } = useParams();
@@ -167,7 +167,7 @@ export const AnnouncmentsHero = () => {
 export const productsLoader = async ({ request }) => {
     const url = new URL(request.url);
     const page = url.searchParams.get("page") || 1;
-    const response = await fetch(`https://api.example.com/handbag?page=${page}`);
+    const response = await fetch(`api/handbag?page=${page}`);
     if (!response.ok) {
         throw new Error("Failed to load products.");
     }

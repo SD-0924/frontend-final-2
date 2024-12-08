@@ -12,7 +12,7 @@
 //   const [tabValue, setTabValue] = useState(0);
 
 //   // useEffect(() => {
-//   //   fetch(`https://backend-final-2-m4zr.onrender.com/api/product/${id}`)
+//   //   fetch(https://backend-final-2-m4zr.onrender.com/api/product/${id})
 //   //     .then((response) => {
 //   //       if (!response.ok) throw new Error('Failed to fetch product');
 //   //       return response.json();
@@ -27,7 +27,7 @@
 //   //     });
 //   // }, [id]);
 //   useEffect(() => {
-//     fetch(`/api/product/${id}`)
+//     fetch(/api/product/${id})
 //       .then(response => {
 //         if (!response.ok) {
 //           throw new Error('Network response was not ok');

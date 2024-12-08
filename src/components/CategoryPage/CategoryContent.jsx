@@ -1,4 +1,4 @@
-import { AnnouncmentsHero } from "../announcmentshero/AnnouncmentsHero"
+import { AnnouncmentsHero } from "./AnnouncmentsHero"
 
 export const CategoryContent = () => {
     return(
