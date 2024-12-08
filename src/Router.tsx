@@ -4,11 +4,11 @@ import { Layout } from "./layout";
 import React from "react";
 import SignUpForm from "./components/RegistrationPages/SignUp/SignUpForm";
 import { CategoryContent } from "./components/CategoryPage/collectioncontent/CategoryContent";
-import { LoginPage } from "./components/LoginPage/loginpage";
 import { CartContent } from "./components/CartPage/cartcontent/cartcontent";
 import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
-import { productsLoader } from "./components/productsloader";
-
+import { LoginPage } from "./components/RegistrationPages/LoginPage/loginpage";
+import ProductPage from "./components/ProductPage/ProductPage";
+import CheckoutPage from "./components/CheckOutPage/CheckoutPage";
 
 
 export const router = createBrowserRouter([
@@ -29,7 +29,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/:type/:name",
-    // loader: productsLoader,
     element: (
       <Layout>
         <CategoryContent />
@@ -49,5 +48,20 @@ export const router = createBrowserRouter([
         <CartContent />
       </Layout>
     )
-  }
+  },{
+    path: "/checkout",
+    element: (
+      <Layout>
+        <CheckoutPage />
+      </Layout>
+    )
+  },
+  {
+    path: "/product/:id",
+    element: (
+      <Layout>
+        <ProductPage />
+      </Layout>
+    )
+  },
 ]);

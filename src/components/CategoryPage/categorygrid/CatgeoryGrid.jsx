@@ -36,7 +36,7 @@ export const CategoryGrid = () => {
     }
 
     const { isLoading, data: products, isError } = useQuery({
-        queryKey: ['products', pageNumber],
+        queryKey: ['products', pageNumber, name],
         queryFn: () => fetchProducts(pageNumber),
     });
     console.log(products);
