@@ -3,7 +3,7 @@ import { BrandsSlider } from '../brandsslider/BrandsSlider';
 import { useQuery } from '@tanstack/react-query';
 export const ShopByBrands = () => {
     const fetchBrands = () => {
-        return fetch("https://cors-anywhere.herokuapp.com/https://backend-final-2-m4zr.onrender.com/api/brands").then((res) => res.json());
+        return fetch("/api/brands").then((res) => res.json());
     }
 
     const { isLoading, data: brands, isError } = useQuery({
