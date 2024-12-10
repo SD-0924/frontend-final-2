@@ -19,17 +19,17 @@ export const CategoryGrid = () => {
     const fetchProducts = (page = 0) => {
         if (type == "category") {
             return fetch(
-                `https://cors-anywhere.herokuapp.com/https://backend-final-2-m4zr.onrender.com/api/products/${name}?page=${page}`
+                `/api/products/${name}?page=${page}`
             ).then((res) => res.json());
         }
         else if (type == "brands") {
             console.log(name);
             return fetch(
-                `https://cors-anywhere.herokuapp.com/https://backend-final-2-m4zr.onrender.com/api/product/brand/${name}`
+                `/api/product/brand/${name}`
             ).then((res) => res.json());
         } else if (type == "search") {
             return fetch(
-                `https://cors-anywhere.herokuapp.com/https://backend-final-2-m4zr.onrender.com/api/search/${name}`
+                `/api/search/${name}`
             ).then((res) => res.json());
         }
 
