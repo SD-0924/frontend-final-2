@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -123,9 +124,9 @@ const Header = () => {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase placeholder="Search for products or brands..." onChange={handleSearchValue} onKeyDown={handleNavigation} value={search}/>
+            <StyledInputBase placeholder="Search for products or brands..." onChange={handleSearchValue} onKeyDown={handleNavigation} value={search} />
           </Search>
-          
+
 
           <CustomIconButton>
             <FavoriteBorderIcon />
@@ -133,9 +134,18 @@ const Header = () => {
           <CustomIconButton>
             <PersonOutlineIcon />
           </CustomIconButton>
-          <CustomIconButton>
-            <ShoppingBagOutlinedIcon />
-          </CustomIconButton>
+          <Link to="/mycart" 
+          style={{
+            display: "inline-flex", // Ensures the content inside Link is visible
+            alignItems: "center",   // Aligns the icon properly
+            justifyContent: "center", // Centers content if needed
+            textDecoration: "none", // Removes any underline
+            color: '#1b4b66',       // Maintains your theme colors
+          }}>
+            <CustomIconButton>
+              <ShoppingBagOutlinedIcon />
+            </CustomIconButton>
+          </Link>
         </Box>
       </Toolbar>
     </AppBar>

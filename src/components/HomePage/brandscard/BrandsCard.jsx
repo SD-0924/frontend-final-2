@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Link } from '@mui/material';
 
-export const BrandsCard = (props) => {
+export const BrandsCard = ({ brand_name, brand_image_url }) => {
   return (
     <Box
     component={Link}
-    href={`/brands/${props.props.brand_name}`}
+    href={`/brands/${brand_name}`}
       sx={{
         display: 'flex',
         backgroundColor: '#f4f4f4',
@@ -30,8 +30,8 @@ export const BrandsCard = (props) => {
        
         <Box
           component="img"
-          src={props.props.brand_image_url}
-          alt={props.props.brand_name}
+          src={brand_image_url}
+          alt={brand_name}
           sx={{
             overflow: 'hidden',
             objectFit: 'contain',
