@@ -9,6 +9,7 @@ import { HomeContent } from "./components/HomePage/homecontent/HomeContent";
 import { LoginPage } from "./components/RegistrationPages/LoginPage/loginpage";
 import ProductPage from "./components/ProductPage/ProductPage";
 import CheckoutPage from "./components/CheckOutPage/CheckoutPage";
+import { ViewAllNewArrivals } from "./components/HomePage/NewArrivals/ViewAllNewArrivals";
 
 
 export const router = createBrowserRouter([
@@ -61,6 +62,14 @@ export const router = createBrowserRouter([
     element: (
       <Layout>
         <ProductPage />
+      </Layout>
+    )
+  },
+  {
+    path: "/AllNewArrivals",
+    element: (
+      <Layout>
+        <ViewAllNewArrivals />
       </Layout>
     )
   },

@@ -113,7 +113,7 @@ const NewArrivals = () => {
                     </Typography>
                     <Typography
                         component="a"
-                        href="#"
+                        href="/AllNewArrivals"
                         sx={{ color: '#1B4B66', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}
                     >
                         View All

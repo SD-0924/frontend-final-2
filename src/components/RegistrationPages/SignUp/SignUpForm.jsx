@@ -10,6 +10,9 @@ import {
 import { useMutation } from '@tanstack/react-query';
 import InputField from './InputField';
 import SignUpButton from './SignUpButton';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Link } from 'react-router-dom';
+
 
 const SignUpForm = () => {
   // State for form data
@@ -38,12 +41,12 @@ const SignUpForm = () => {
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Sign-up failed');
       }
-  
+
       return response.json();
     },
     onSuccess: () => {
@@ -81,7 +84,7 @@ const SignUpForm = () => {
 
   return (
     <Container
-      maxWidth="sm"
+      maxWidth="xs"
       sx={{
         padding: 2,
         display: 'flex',
@@ -90,6 +93,34 @@ const SignUpForm = () => {
         marginTop: isSmallScreen ? 2 : 5,
       }}
     >
+
+      <Box
+        sx={{
+          display: 'flex',
+          width: '50px',
+          height: '50px',
+          bgcolor: 'purple',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+          borderRadius: '50%',
+          '@media (max-width: 600px)': {
+            width: '40px',
+            height: '40px',
+          },
+        }}
+      >
+        <LockOutlinedIcon
+          sx={{
+            fontSize: '30px',
+            '@media (max-width: 600px)': {
+              fontSize: '24px',
+            },
+
+          }}
+        />
+      </Box>
+
       <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <Typography
           variant="h4"
@@ -141,11 +172,16 @@ const SignUpForm = () => {
             <Checkbox
               name="updates"
               // checked={}
-              color="primary"
+              // color="primary"
               onChange={handleInputChange}
+              // sx={{ my: 2}}
             />
           }
           label="I want to receive inspiration, marketing promotions and updates via email."
+          sx={{
+            color: 'primary', // Set the text color to gray
+            marginBottom: 3 
+          }}
         />
 
         {mutation.isError && (
@@ -160,15 +196,30 @@ const SignUpForm = () => {
           </Typography>
         )}
 
-        <SignUpButton onSubmit={handleSubmit} 
-// @ts-ignore
-        isLoading={mutation.isLoading} />
+        <SignUpButton onSubmit={handleSubmit}
+          // @ts-ignore
+          isLoading={mutation.isLoading}
+        />
 
-        <Typography variant="body2" sx={{ textAlign: 'center', marginTop: 2 }}>
-          Already have an account?{' '}
-          <a href="#" style={{ textDecoration: 'none' }}>
-            Sign in
-          </a>
+        <Typography variant="body2" sx={{ textAlign: 'right', marginTop: 1 }}>
+          {/* Already have an account?{' '} */}
+          <Link to="/login" style={{ textDecoration: 'underline', color: 'blue' }}>
+            Already have an account? Sign in
+          </Link>
+        </Typography>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            marginTop: '50px',
+            color: '#666666',
+            fontSize: '0.9rem',
+            '@media (max-width: 600px)': {
+              marginTop: '30px',
+              fontSize: '0.8rem',
+            },
+          }}
+        >
+          Copy right © <u>Your Website</u> 2024.
         </Typography>
       </Box>
     </Container>

@@ -1,8 +1,10 @@
 import { Box, Button, Container, Link, Typography } from "@mui/material";
 import Divider from '@mui/material/Divider';
 import { CartCard } from "../cartcard/cartcard";
+import { useNavigate } from 'react-router-dom';
 
 export const CartContent = () => {
+    const navigate = useNavigate();
     return (
         <Container>
             <Box>
@@ -100,9 +102,9 @@ export const CartContent = () => {
                         </Box>
                         <Divider />
                         {/* Cart Cards */}
-                        <CartCard/>
-                        <CartCard/>
-                        <CartCard/>
+                        <CartCard />
+                        <CartCard />
+                        <CartCard />
                     </Box>
                     <Box
                         sx={{
@@ -188,7 +190,7 @@ export const CartContent = () => {
                                     gap: { xs: "10px", sm: "0" },
                                 }}
                             >
-                                <Button
+                                {/* <Button
                                     variant="contained"
                                     sx={{
                                         borderRadius: "5px",
@@ -198,7 +200,20 @@ export const CartContent = () => {
                                     }}
                                 >
                                     Proceed to checkout
+                                </Button> */}
+                                <Button
+                                    variant="contained"
+                                    sx={{
+                                        borderRadius: "5px",
+                                        textTransform: "none",
+                                        width: { xs: "100%", sm: "47%" },
+                                        bgcolor: "#1B4B66",
+                                    }}
+                                    onClick={() => navigate("/checkout")} // Navigate to the checkout route on click
+                                >
+                                    Proceed to checkout
                                 </Button>
+
                                 <Button
                                     variant="outlined"
                                     sx={{
